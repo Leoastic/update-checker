@@ -1,25 +1,15 @@
 private void Form1_Load(object sender, EventArgs e) 
         {
-            CurrentVersion();
             CheckForUpdates();
         }
-        int updateIdentifier = 2; //modify with every new version
-        int programBuildNumber = int.Parse(System.IO.File.ReadAllText(@"path to file with build number"));
+        int updateIdentifier = x; //modify with every new version
         int updateNumber = int.Parse(HTTPS.HttpGet("https://raw.githubusercontent.com/rawpath"));
 
         public void CheckForUpdates()
         {
-            if (programBuildNumber < updateNumber)
+            if (updateIdentifier < updateNumber)
             {
                 MessageBox.Show("A new update is available! Go to https://github.com/xyz to download the new update!);
-            }
-        }
-
-        public void CurrentVersion()
-        {
-            if (updateIdentifier == programBuildNumber)
-            {
-                File.WriteAllText(@"build number path", updateIdentifier.ToString());
             }
         }
         
